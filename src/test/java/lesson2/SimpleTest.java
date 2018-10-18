@@ -1,26 +1,35 @@
-package lesson1;
+package lesson2;
 
+import base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
-public class SimpleTest {
+public class SimpleTest extends TestBase {
 
-    @Test
-    public void simpleTest() {
-        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+    private WebDriver driver;
 
-        //1 Open BR
-        WebDriver driver = new ChromeDriver();
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        driver.close();
+    }
+
+    @Test(groups = "Group1")
+    public void simpleTest() {
 
         //2 Navigate
         driver.navigate().to("https://epam.github.io/JDI/index.html");
@@ -37,8 +46,5 @@ public class SimpleTest {
 
         WebElement mainTitle = driver.findElement(By.cssSelector("h3.main-title"));
         assertEquals(mainTitle.getText(), "EPAM FRAMEWORK WISHES…");
-
-
-        driver.close();
     }
 }
