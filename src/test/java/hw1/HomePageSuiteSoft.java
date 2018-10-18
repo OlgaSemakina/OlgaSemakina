@@ -14,7 +14,22 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.System.setProperty;
 
 public class HomePageSuiteSoft {
+
     private SoftAssert softAssert = new SoftAssert();
+
+    private List<String> neededItems = new ArrayList<String>() {{
+        add("HOME");
+        add("CONTACT FORM");
+        add("SERVICE");
+        add("METALS & COLORS");
+    }};
+
+    private List<String> neededTexts = new ArrayList<String>() {{
+        add("To include good practices\nand ideas from successful\nEPAM project");
+        add("To be flexible and\ncustomizable");
+        add("To be multiplatform");
+        add("Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
+    }};
 
     @Test
     public void homePageContentTest() {
@@ -46,13 +61,6 @@ public class HomePageSuiteSoft {
         softAssert.assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
-        List<String> neededItems = new ArrayList<String>() {{
-            add("HOME");
-            add("CONTACT FORM");
-            add("SERVICE");
-            add("METALS & COLORS");
-        }};
-
         List<WebElement> navigationItems = driver.findElements(By.cssSelector(".nav > li"));
         softAssert.assertEquals(navigationItems.size(), 4);
 
@@ -70,13 +78,6 @@ public class HomePageSuiteSoft {
         }
 
         //8 Assert that there are 4 texts on the Home Page under icons and they have proper text
-        List<String> neededTexts = new ArrayList<String>() {{
-            add("To include good practices\nand ideas from successful\nEPAM project");
-            add("To be flexible and\ncustomizable");
-            add("To be multiplatform");
-            add("Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
-        }};
-
         List<WebElement> iconTexts = driver.findElements(By.cssSelector(".benefit-txt"));
         softAssert.assertEquals(iconTexts.size(), 4);
 
@@ -126,10 +127,8 @@ public class HomePageSuiteSoft {
         WebElement footer = driver.findElement(By.tagName("footer"));
         softAssert.assertTrue(footer.isDisplayed());
 
-        //17 Complete asserts
+        //17 Close Browser
         softAssert.assertAll();
-
-        //18 Close Browser
         driver.close();
     }
 }
