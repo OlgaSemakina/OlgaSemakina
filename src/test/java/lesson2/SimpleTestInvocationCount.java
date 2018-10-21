@@ -15,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 
 public class SimpleTestInvocationCount extends TestBase{
 
-    @Test(invocationCount = 3, threadPoolSize = 3, timeOut = 0)
+    @Test(invocationCount = 9, threadPoolSize = 3, timeOut = 0)
     public void simpleTest() {
 
         // 1 Open BR

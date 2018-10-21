@@ -23,7 +23,7 @@ public class SimpleTest extends TestBase {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         driver.close();
     }

@@ -17,13 +17,16 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
 public class SimpleTestPageObject extends TestBase {
+
     private WebDriver driver;
     private HomePage homePage;
+
     @BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();
         homePage = PageFactory.initElements(driver, HomePage.class);
     }
+
     @BeforeMethod
     public void beforeMethod() {
         driver.manage().window().maximize();
@@ -49,6 +52,7 @@ public class SimpleTestPageObject extends TestBase {
 
         //4 Login
         homePage.login("epam", "1234");
+        //homePage.login(PITERCHAILOVSKII
 
         WebElement mainTitle = driver.findElement(By.cssSelector("h3.main-title"));
         assertEquals(mainTitle.getText(), "EPAM FRAMEWORK WISHES…");
