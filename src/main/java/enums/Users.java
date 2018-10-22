@@ -4,11 +4,12 @@ public enum Users {
 
     PITER_CHALOVSKII("epam", "1234");
 
+    public String login;
+    public String password;
+
     Users(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    public String login;
-    public String password;
 }
