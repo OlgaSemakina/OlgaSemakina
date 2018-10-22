@@ -1,29 +1,24 @@
 package hw3;
 
 import base.TestBase;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageObjects.HomePageHw2;
+import pageObjects.HomePageHw3;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static enums.Users.PITER_CHALOVSKII;
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class HomePageSuitePageObjects extends TestBase {
 
     private WebDriver driver;
-    private HomePageHw2 homePage;
+    private HomePageHw3 homePage;
 
     private List<String> neededItems = new ArrayList<String>() {{
         add("HOME");
@@ -48,7 +43,7 @@ public class HomePageSuitePageObjects extends TestBase {
     @BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();
-        homePage = PageFactory.initElements(driver, HomePageHw2.class);
+        homePage = PageFactory.initElements(driver, HomePageHw3.class);
     }
 
     @BeforeMethod

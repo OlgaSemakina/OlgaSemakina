@@ -9,7 +9,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class HomePageHw2 {
+public class HomePageHw3 {
 
     @FindBy(css = ".profile-photo")
     private WebElement profileButton;
