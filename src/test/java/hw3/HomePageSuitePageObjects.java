@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static enums.Users.PITER_CHALOVSKII;
+import static enums.Users.PITER_CHAILOVSKII;
 
 public class HomePageSuitePageObjects extends TestBase {
 
@@ -62,10 +62,10 @@ public class HomePageSuitePageObjects extends TestBase {
         homePage.checkTitle(driver);
 
         //3 Perform login
-        homePage.login(PITER_CHALOVSKII.login, PITER_CHALOVSKII.password);
+        homePage.login(PITER_CHAILOVSKII.login, PITER_CHAILOVSKII.password);
 
         //4 Assert User name in the right-top side of screen that user is loggined
-        homePage.checkUsername();
+        homePage.checkUsername(PITER_CHAILOVSKII.username);
 
         //5 Assert Browser title
         homePage.checkTitle(driver);

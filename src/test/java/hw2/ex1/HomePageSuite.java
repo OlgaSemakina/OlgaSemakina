@@ -16,7 +16,7 @@ import static org.testng.Assert.assertTrue;
 
 public class HomePageSuite extends TestBase {
     @Test(dataProvider = "iconTextsProvider", dataProviderClass = DataProviders.class)
-    public void HomePageIconsTest(List<String> texts, int i) {
+    public void HomePageIconsTest(String texts, int i) {
 
         // 1 Open BR
         WebDriver driver = new ChromeDriver();

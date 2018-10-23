@@ -80,8 +80,8 @@ public class HomePageHw3 {
         assertEquals(driver.getTitle(), "Home Page");
     }
 
-    public void checkUsername() {
-        assertEquals(profileButton.getText(), "PITER CHAILOVSKII");
+    public void checkUsername(String username) {
+        assertEquals(profileButton.getText(), username);
     }
 
     public void checkHeaderItems(List<String> neededItems) {

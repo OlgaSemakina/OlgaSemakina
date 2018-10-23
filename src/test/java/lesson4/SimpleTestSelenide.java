@@ -41,7 +41,7 @@ public class SimpleTestSelenide extends SelenideTestBase {
         SelenideElement maintTitle = $("h3.main-title");
         maintTitle.shouldBe(visible);
         maintTitle.shouldHave(text("EPAM FRAMEWORK WISHES…"));
-        assertEquals(maintTitle.getText(),"EPAM FRAMEWORK WISHES…");
+        //assertEquals(maintTitle.getText(),"EPAM FRAMEWORK WISHES…");
 
         //6 Check 4 images
         $$(By.xpath("")).shouldHaveSize(4);
