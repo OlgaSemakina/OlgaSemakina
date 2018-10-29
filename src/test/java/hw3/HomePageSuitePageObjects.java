@@ -4,6 +4,7 @@ import base.TestBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -50,6 +51,11 @@ public class HomePageSuitePageObjects extends TestBase {
     public void beforeMethod() {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        driver.close();
     }
 
     @Test
@@ -104,8 +110,5 @@ public class HomePageSuitePageObjects extends TestBase {
 
         //16 Assert that there is Footer
         homePage.checkFooter();
-
-        //17 Close Browser
-        driver.close();
     }
 }
