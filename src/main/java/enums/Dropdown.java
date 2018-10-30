@@ -1,14 +1,14 @@
 package enums;
 
 public enum Dropdown {
-    RED("Red", "Colors"), GREEN("Green", "Colors"),
-    BLUE("Blue", "Colors"), YELLOW("Yellow", "Colors");
+
+    RED("Red"), GREEN("Green"),
+    BLUE("Blue"), YELLOW("Yellow");
 
     public String name;
-    public String category;
+    public static String category = "Colors";
 
-    Dropdown(String name, String category) {
+    Dropdown(String name) {
         this.name = name;
-        this.category = category;
     }
 }
