@@ -3,6 +3,7 @@ package pageObjects.hw5;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import enums.Range2;
+import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,6 +24,7 @@ public class DatesPage extends pageObjects.hw5.SiteBase {
 
     //================================methods===================================
 
+    @Step
     public void setSliders(int fromPercent, int toPercent) {
         double width = slider.getSize().getWidth();
         double sliderWidth = rangeSliders.get(0).getSize().getWidth();
@@ -50,6 +52,7 @@ public class DatesPage extends pageObjects.hw5.SiteBase {
 
     //================================checks===================================
 
+    @Step
     public void checkLogPercent(Range2 from, int fromPercent, Range2 to, int toPercent) {
         ElementsCollection logsRange = logs.first(2);
         String regexFrom = ".*" + from.name + ".." + fromPercent;
@@ -57,6 +60,7 @@ public class DatesPage extends pageObjects.hw5.SiteBase {
         assertTrue(checkLog(regexFrom, regexTo, logsRange) || checkLog(regexTo, regexFrom, logsRange));
     }
 
+    @Step
     private boolean checkLog(String regexFirst, String regexSecond, ElementsCollection logsRange) {
         return logsRange.get(0).has(matchText(regexFirst)) && logsRange.get(1).has(matchText(regexSecond));
     }

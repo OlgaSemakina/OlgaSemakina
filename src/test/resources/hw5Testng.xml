@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Different Elements Page Suite" verbose="1">
-    <test name="Different Elements Page Interface Test" parallel="methods" thread-count="3">
+<suite name="Suite HW5" verbose="1">
+    <test name="Hw5 Pages Test" parallel="methods" thread-count="3">
 
-        <classes>
-            <class name="hw5.ex2.FailedDifferentElementsPageSuite"/>
-        </classes>
+        <packages>
+            <package name="hw5.ex2"/>
+        </packages>
 
     </test>
 </suite>
