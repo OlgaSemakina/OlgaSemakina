@@ -59,7 +59,7 @@ public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
         differentElementsPage.checkLeftSectionExists();
 
         //11 Select checkboxes
-        differentElementsPage.selectCheckboxes(enable, WATER, WIND);
+        differentElementsPage.selectCheckboxes(true, WATER, WIND);
 
         //12 Assert that for each checkbox there is an individual log row and value is corresponded to the status
         // of checkbox. 
@@ -79,7 +79,7 @@ public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
         differentElementsPage.checkLogDropdown(YELLOW);
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.selectCheckboxes(disable, WATER, WIND);
+        differentElementsPage.selectCheckboxes(false, WATER, WIND);
 
         //18 Assert that for each checkbox there is an individual log row and value is corresponded to the status
         // of checkbox. 

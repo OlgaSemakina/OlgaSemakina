@@ -12,7 +12,6 @@ import pageObjects.hw5.HomePage;
 
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Checkboxes.*;
-import static enums.Dropdown.RED;
 import static enums.Dropdown.YELLOW;
 import static enums.Radios.BRONZE;
 import static enums.ServiceElements.getServiceElements;
@@ -67,7 +66,7 @@ public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
         differentElementsPage.checkLeftSectionExists();
 
         //11 Select checkboxes
-        differentElementsPage.selectCheckboxes(enable, WATER, WIND);
+        differentElementsPage.selectCheckboxes(true, WATER, WIND);
 
         //12 Assert that for each checkbox there is an individual log row and value is corresponded to the status
         // of checkbox. 
@@ -84,10 +83,10 @@ public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
 
         //16 Assert that for dropdown there is a log row
         // and value is corresponded to the selected value. 
-        differentElementsPage.checkLogDropdown(RED);
+        differentElementsPage.checkLogDropdown(YELLOW);
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.selectCheckboxes(disable, WATER, WIND);
+        differentElementsPage.selectCheckboxes(false, WATER, WIND);
 
         //18 Assert that for each checkbox there is an individual log row and value is corresponded to the status
         // of checkbox. 

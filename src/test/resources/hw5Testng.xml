@@ -4,7 +4,7 @@
     <test name="Different Elements Page Interface Test" parallel="methods" thread-count="3">
 
         <classes>
-            <class name="hw5.ex2.DifferentElementsPageSuite"/>
+            <class name="hw5.ex2.FailedDifferentElementsPageSuite"/>
         </classes>
 
     </test>

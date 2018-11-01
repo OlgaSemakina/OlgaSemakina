@@ -6,8 +6,6 @@ public enum Checkboxes {
 
     public String name;
     public static int size = 4;
-    public static boolean enable = true;
-    public static boolean disable = true;
 
     Checkboxes(String name) {
         this.name = name;

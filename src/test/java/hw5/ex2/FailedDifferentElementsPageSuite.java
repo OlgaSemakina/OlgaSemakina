@@ -1,4 +1,4 @@
-package hw5.ex1;
+package hw5.ex2;
 
 import base.SelenideTestBaseHw4;
 import io.qameta.allure.Feature;
@@ -12,6 +12,7 @@ import pageObjects.hw5.HomePage;
 
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Checkboxes.*;
+import static enums.Dropdown.RED;
 import static enums.Dropdown.YELLOW;
 import static enums.Radios.BRONZE;
 import static enums.ServiceElements.getServiceElements;
@@ -21,7 +22,7 @@ import static enums.Users.PITER_CHAILOVSKII;
 @Feature("Smoke tests")
 @Story("Different elements page testing")
 @Listeners(AllureListener.class)
-public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
+public class FailedDifferentElementsPageSuite extends SelenideTestBaseHw4 {
 
     private HomePage homePage;
     private DifferentElementsPage differentElementsPage;
@@ -83,7 +84,7 @@ public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
 
         //16 Assert that for dropdown there is a log row
         // and value is corresponded to the selected value. 
-        differentElementsPage.checkLogDropdown(YELLOW);
+        differentElementsPage.checkLogDropdown(RED);
 
         //17 Unselect and assert checkboxes
         differentElementsPage.selectCheckboxes(false, WATER, WIND);
