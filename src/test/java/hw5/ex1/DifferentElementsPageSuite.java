@@ -1,10 +1,14 @@
-package hw4;
+package hw5.ex1;
 
 import base.SelenideTestBaseHw4;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import listeners.AllureListener;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pageObjects.hw4.DifferentElementsPage;
-import pageObjects.hw4.HomePage;
+import pageObjects.hw5.DifferentElementsPage;
+import pageObjects.hw5.HomePage;
 
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Checkboxes.*;
@@ -14,6 +18,9 @@ import static enums.ServiceElements.getServiceElements;
 import static enums.SitePages.HOME_PAGE;
 import static enums.Users.PITER_CHAILOVSKII;
 
+@Feature("Smoke tests")
+@Story("Different elements page testing")
+@Listeners(AllureListener.class)
 public class DifferentElementsPageSuite extends SelenideTestBaseHw4 {
 
     private HomePage homePage;

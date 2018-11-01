@@ -10,9 +10,11 @@
 
 
     <properties>
-        <suiteXmlFile>testng.xml</suiteXmlFile>
+        <suiteXmlFile>hw5Testng.xml</suiteXmlFile>
         <allure.version>2.6.0</allure.version>
         <aspectj.version>1.8.12</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -95,7 +97,6 @@
         </dependency>
 
     </dependencies>
-
 
     <build>
         <plugins>

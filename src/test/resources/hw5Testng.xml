@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite HW5">
+    <suite-files>
+        <suite-file path="hw5/DatesPageSuite.xml"/>
+        <suite-file path="hw5/DifferentElementsPageSuite.xml"/>
+    </suite-files>
+</suite>
