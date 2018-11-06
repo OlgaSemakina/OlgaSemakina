@@ -29,7 +29,7 @@ public class HomePageSelenide {
     //================================methods===================================
 
     public void openPage() {
-        open("https://epam.github.io/JDI/index.html");
+        open("https://epam.github.io/hw8JDI/index.html");
     }
 
     public void login(String name, String passwd){

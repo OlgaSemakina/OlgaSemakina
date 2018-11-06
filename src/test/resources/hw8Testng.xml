@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Metals and Colors Page Suite" verbose="1" >
+    <test name="Metals and Color Form Test" >
+
+        <classes>
+            <class name="hw8JDI.MetalsColorsPageSuite" />
+        </classes>
+
+    </test>
+</suite>

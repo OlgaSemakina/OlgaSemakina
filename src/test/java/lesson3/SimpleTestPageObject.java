@@ -43,7 +43,7 @@ public class SimpleTestPageObject extends TestBase {
     public void simpleTest() {
 
         //2 Navigate
-        driver.navigate().to("https://epam.github.io/JDI/index.html");
+        driver.navigate().to("https://epam.github.io/hw8JDI/index.html");
         //homePage.open(driver);
 
         //3 Assert Title

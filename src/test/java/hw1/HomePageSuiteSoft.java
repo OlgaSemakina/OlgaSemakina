@@ -42,7 +42,7 @@ public class HomePageSuiteSoft {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         //1 Open test site by URL
-        driver.navigate().to("https://epam.github.io/JDI/");
+        driver.navigate().to("https://epam.github.io/hw8JDI/");
 
         //2 Assert Browser title
         softAssert.assertEquals(driver.getTitle(), "Home Page");
@@ -114,10 +114,10 @@ public class HomePageSuiteSoft {
         //13 Assert a text of the sub header
         WebElement subHeader = driver.findElement(By.cssSelector("h3 > a"));
         softAssert.assertTrue(subHeader.isDisplayed());
-        softAssert.assertEquals(subHeader.getText(), "JDI GITHUB");
+        softAssert.assertEquals(subHeader.getText(), "hw8JDI GITHUB");
 
-        //14 Assert that JDI GITHUB is a link and has a proper URL
-        softAssert.assertEquals(subHeader.getAttribute("href"), "https://github.com/epam/JDI");
+        //14 Assert that hw8JDI GITHUB is a link and has a proper URL
+        softAssert.assertEquals(subHeader.getAttribute("href"), "https://github.com/epam/hw8JDI");
 
         //15 Assert that there is Left Section
         WebElement leftSection = driver.findElement(By.name("navigation-sidebar"));

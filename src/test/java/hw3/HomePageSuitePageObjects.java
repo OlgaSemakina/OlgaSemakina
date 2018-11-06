@@ -102,7 +102,7 @@ public class HomePageSuitePageObjects extends TestBase {
         //13 Assert a text of the sub header
         homePage.checkSubHeaderText();
 
-        //14 Assert that JDI GITHUB is a link and has a proper URL
+        //14 Assert that hw8JDI GITHUB is a link and has a proper URL
         homePage.checkSubHeaderLink();
 
         //15 Assert that there is Left Section
