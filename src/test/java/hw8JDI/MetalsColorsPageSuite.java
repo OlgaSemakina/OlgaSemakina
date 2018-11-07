@@ -31,7 +31,7 @@ public class MetalsColorsPageSuite extends TestBase {
         homePage.header.menu.select(METALS_COLORS);
 
         //3 Fill form Metals & Colors by data from DataProvider and submit
-        metalsAndColorsPage.form.submit(data);
+        metalsAndColorsPage.form.submitForm(data);
 
         //4 Result sections contains data from DataProvider:
         metalsAndColorsPage.results.check(data);

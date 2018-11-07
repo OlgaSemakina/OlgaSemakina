@@ -47,8 +47,7 @@ public class MetalsAndColorsForm extends Form<MetalColorsData> {
 
     //================================methods===================================
 
-    @Override
-    public void submit(MetalColorsData data) {
+    public void submitForm(MetalColorsData data) {
         selectSummary(data.summary);
         selectElements(data.elements);
         this.color.select(data.color);
