@@ -23,7 +23,7 @@ public class SimpleTestDataProvider extends TestBase{
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         //2 Navigate
-        driver.navigate().to("https://epam.github.io/hw8JDI/index.html");
+        driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //3 Assert Title
         assertEquals(driver.getTitle(), "Home Page");

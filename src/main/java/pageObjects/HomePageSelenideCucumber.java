@@ -38,7 +38,7 @@ public class HomePageSelenideCucumber {
     @Step
     @When("I'm on the Home Page")
     public void openPage() {
-        open("https://epam.github.io/hw8JDI/index.html");
+        open("https://epam.github.io/JDI/index.html");
     }
 
     @Step

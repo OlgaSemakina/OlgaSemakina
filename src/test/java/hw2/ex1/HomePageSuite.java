@@ -24,7 +24,7 @@ public class HomePageSuite extends TestBase {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         //2 Navigate
-        driver.navigate().to("https://epam.github.io/hw8JDI/index.html");
+        driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //8 Assert that there are 4 texts on the Home Page under icons and they have proper text
         List<WebElement> iconTexts = driver.findElements(By.cssSelector(".benefit-txt"));

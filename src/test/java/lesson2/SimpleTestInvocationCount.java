@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -24,7 +22,7 @@ public class SimpleTestInvocationCount extends TestBase{
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         //2 Navigate
-        driver.navigate().to("https://epam.github.io/hw8JDI/index.html");
+        driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //3 Assert Title
         assertEquals(driver.getTitle(), "Home Page");

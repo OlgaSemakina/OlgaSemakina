@@ -63,7 +63,7 @@ public class HomePageHw3 {
     }
 
     public void open(WebDriver driver) {
-        driver.navigate().to("https://epam.github.io/hw8JDI/");
+        driver.navigate().to("https://epam.github.io/JDI/");
     }
 
     public void openFrame(WebDriver driver) {
@@ -127,11 +127,11 @@ public class HomePageHw3 {
 
     public void checkSubHeaderText() {
         assertTrue(subHeader.isDisplayed());
-        assertEquals(subHeader.getText(), "hw8JDI GITHUB");
+        assertEquals(subHeader.getText(), "JDI GITHUB");
     }
 
     public void checkSubHeaderLink() {
-        assertEquals(subHeader.getAttribute("href"), "https://github.com/epam/hw8JDI");
+        assertEquals(subHeader.getAttribute("href"), "https://github.com/epam/JDI");
     }
 
     public void checkLeftSection() {
