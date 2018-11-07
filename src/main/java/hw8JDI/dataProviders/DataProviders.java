@@ -16,6 +16,7 @@ public class DataProviders {
     public Object[][] metalsColorsDataProvider() throws FileNotFoundException {
         String jsonPathJDI = "src\\test\\resources\\JDI_ex8_metalsColorsDataSet.json";
         Gson gson = new Gson();
+        // TODO It will be better with TypeToke
         JsonElement jsonData = new JsonParser().parse(new FileReader(jsonPathJDI));
         JsonObject dataSet = jsonData.getAsJsonObject();
 
