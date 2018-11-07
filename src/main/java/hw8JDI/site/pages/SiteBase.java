@@ -11,6 +11,7 @@ public abstract class SiteBase extends WebPage {
 
     public void login(Users user) {
         header.profilePhoto.click();
+        // TODO What the point of this TWO classes with exactly the same purpose ?
         header.loginForm.loginAs(new User(user));
     }
 }

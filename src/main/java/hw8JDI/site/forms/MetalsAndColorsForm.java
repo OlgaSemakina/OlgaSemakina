@@ -47,6 +47,7 @@ public class MetalsAndColorsForm extends Form<MetalColorsData> {
 
     //================================methods===================================
 
+    // TODO Do you have a chance to read IDEA warnings ?
     @Override
     public void submit(MetalColorsData data) {
         selectSummary(data.summary);
