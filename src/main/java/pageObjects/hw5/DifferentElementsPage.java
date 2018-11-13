@@ -64,7 +64,6 @@ public class DifferentElementsPage extends SiteBase {
         dropdown.selectOption(dropdownColor.name);
     }
 
-    @Step
     private boolean logContainsCheckbox(Checkboxes checkbox, SelenideElement element) {
         for (SelenideElement logElement : logs) {
             if (logElement.has(matchText(".*" + checkbox.name + ".*" + element.isSelected()))) {
@@ -74,7 +73,6 @@ public class DifferentElementsPage extends SiteBase {
         return false;
     }
 
-    @Step
     private boolean logContainsRadio(String name, SelenideElement element) {
         for (SelenideElement logElement : logs) {
             if (logElement.has(matchText(".*" + element.name() + ".*" + name))) {
@@ -84,7 +82,6 @@ public class DifferentElementsPage extends SiteBase {
         return false;
     }
 
-    @Step
     private boolean logContainsDropdown(Dropdown dropdownColor) {
         for (SelenideElement logElement : logs) {
             if (logElement.has(matchText(".*" + category + ".*" + dropdown.getSelectedText())) &&
@@ -139,7 +136,6 @@ public class DifferentElementsPage extends SiteBase {
         assertTrue(logContainsDropdown(dropdownColor));
     }
 
-    @Step
     private void checkLogCheckbox(Checkboxes checkbox) {
         for (SelenideElement element : checkboxes) {
             if (element.parent().getText().equals(checkbox.name))

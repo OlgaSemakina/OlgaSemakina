@@ -1,4 +1,4 @@
-package pageObjects.hw6;
+package hw6.pageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -6,6 +6,9 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import enums.HeaderMenu;
+import enums.ServiceElements;
+import enums.Users;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
@@ -50,8 +53,8 @@ public class HomePage {
     @FindBy(css = ".main-txt")
     private SelenideElement mainText;
 
-    @FindBy(css = "[class = 'dropdown']")
-    private SelenideElement service;
+    @FindBy(css = ".nav>li")
+    private ElementsCollection header;
 
     @FindBy(css = "ul.dropdown-menu a")
     private ElementsCollection serviceMenu;
@@ -62,10 +65,6 @@ public class HomePage {
     @FindBy(css = "[class = 'sub'] a")
     private ElementsCollection serviceMenuLeft;
 
-    @FindBy(xpath = "//a[text()='Different elements']")
-    private SelenideElement diffElements;
-
-
     public HomePage() {
         page(this);
     }
@@ -73,13 +72,13 @@ public class HomePage {
     //================================methods===================================
 
     @Step
-    @Given("I am on the Home Page")
+    @Given("I am on \"Home Page\"")
     public void openPage() {
         open(HOME_PAGE.url);
     }
 
     @Step
-    @When("I login as user \"(.+)\" with password \"(.+)\"")
+    @When("I login as user \"(.+)\" with password \"(.+)\"$")
     public void login(String userLogin, String userPassword) {
         profileButton.click();
         login.sendKeys(userLogin);
@@ -88,17 +87,49 @@ public class HomePage {
     }
 
     @Step
+    @When("I login as user \"(\\S+ \\S+)\"$")
+    public void loginByUser(String username) {
+        Users user = Users.getValueOf(username.toUpperCase());
+        profileButton.click();
+        login.sendKeys(user.login);
+        password.sendKeys(user.password);
+        submit.click();
+    }
+
+    @Step
     @Given("I am on the Different Elements page")
     public void openDiffElements() {
-        service.click();
-        diffElements.click();
+        headerClick(HeaderMenu.SERVICE.name());
+        openPageFromService(ServiceElements.DIFFERENT_ELEMENTS.name);
+    }
+
+    @Step
+    @When("I click on \"(.*)\" button in Header")
+    public void headerClick(String name) {
+        for (SelenideElement element : header) {
+            if (element.text().equals(name.toUpperCase())) {
+                element.click();
+                break;
+            }
+        }
+    }
+
+    @Step
+    @And("I click on \"(.*)\" button in Service dropdown")
+    public void openPageFromService(String name) {
+        for (SelenideElement element : serviceMenu) {
+            if (element.text().equals(name.toUpperCase())) {
+                element.click();
+                break;
+            }
+        }
     }
 
     //================================checks===================================
 
     @Step
-    @Then("The browser title is (.+ .+)")
-    public void checkTitle(String page)  {
+    @Then("The browser title is \"(.+ .+)\"")
+    public void checkTitle(String page) {
         assertEquals(getWebDriver().getTitle(), page);
     }
 
@@ -120,7 +151,7 @@ public class HomePage {
     @Step
     @And("Service dropdown contains options:")
     public void checkServiceDropdownContains(List<String> serviceElements) {
-        service.click();
+        headerClick(HeaderMenu.SERVICE.name());
         for (String element : serviceElements) {
             assertTrue(serviceMenu.texts().contains(element.toUpperCase()));
         }

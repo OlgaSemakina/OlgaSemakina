@@ -60,7 +60,6 @@ public class DatesPage extends pageObjects.hw5.SiteBase {
         assertTrue(checkLog(regexFrom, regexTo, logsRange) || checkLog(regexTo, regexFrom, logsRange));
     }
 
-    @Step
     private boolean checkLog(String regexFirst, String regexSecond, ElementsCollection logsRange) {
         return logsRange.get(0).has(matchText(regexFirst)) && logsRange.get(1).has(matchText(regexSecond));
     }

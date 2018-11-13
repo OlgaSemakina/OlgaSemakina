@@ -1,4 +1,4 @@
-package pageObjects.hw6;
+package hw6.pageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -6,7 +6,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import enums.Checkboxes;
-import enums.Dropdown;
 import enums.Radios;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -52,7 +51,6 @@ public class DifferentElementsPage {
     @Step
     @When("I (.*) checkboxes:")
     public void selectCheckboxes(String isSelected, List<String> checkbox) {
-        System.out.println(isSelected);
         boolean state = "select".equals(isSelected);
         for (String element : checkbox) {
             selectCheckbox(state, element);
@@ -60,37 +58,36 @@ public class DifferentElementsPage {
     }
 
     @Step
-    public void selectCheckbox(boolean state, String checkbox) {
+    @When("I select (.*) radio")
+    public void selectRadio(String radio) {
+        for (SelenideElement element : radios) {
+            if (element.parent().getText().equals(radio))
+                element.click();
+        }
+    }
+
+    @Step
+    @When("I select (.*) in dropdown")
+    public void selectInDropdown(String dropdownColor) {
+        dropdown.selectOption(dropdownColor);
+    }
+
+    private void selectCheckbox(boolean state, String checkbox) {
         for (SelenideElement element : checkboxes) {
             if (element.parent().getText().equals(checkbox))
                 element.setSelected(state);
         }
     }
 
-    @Step
-    public void selectRadio(Radios radio) {
-        for (SelenideElement element : radios) {
-            if (element.parent().getText().equals(radio.name))
-                element.click();
-        }
-    }
-
-    @Step
-    public void selectInDropdown(Dropdown dropdownColor) {
-        dropdown.selectOption(dropdownColor.name);
-    }
-
-    @Step
-    private boolean logContainsCheckbox(Checkboxes checkbox, SelenideElement element) {
+    private boolean logContainsCheckbox(String checkboxName, SelenideElement element) {
         for (SelenideElement logElement : logs) {
-            if (logElement.has(matchText(".*" + checkbox.name + ".*" + element.isSelected()))) {
+            if (logElement.has(matchText(".*" + checkboxName + ".*" + element.isSelected()))) {
                 return true;
             }
         }
         return false;
     }
 
-    @Step
     private boolean logContainsRadio(String name, SelenideElement element) {
         for (SelenideElement logElement : logs) {
             if (logElement.has(matchText(".*" + element.name() + ".*" + name))) {
@@ -100,11 +97,10 @@ public class DifferentElementsPage {
         return false;
     }
 
-    @Step
-    private boolean logContainsDropdown(Dropdown dropdownColor) {
+    private boolean logContainsDropdown(String dropdownColorName) {
         for (SelenideElement logElement : logs) {
             if (logElement.has(matchText(".*" + category + ".*" + dropdown.getSelectedText())) &&
-                    dropdownColor.name.equals(dropdown.getSelectedText())) {
+                    dropdownColorName.equals(dropdown.getSelectedText())) {
                 return true;
             }
         }
@@ -144,30 +140,32 @@ public class DifferentElementsPage {
     }
 
     @Step
-    public void checkLogCheckboxes(Checkboxes... checkboxes) {
-        for (Checkboxes element : checkboxes) {
+    @Then("There is a log row for:")
+    public void checkLogCheckboxes(List<String> checkboxes) {
+        for (String element : checkboxes) {
             checkLogCheckbox(element);
         }
     }
 
     @Step
-    public void checkLogRadios(Radios radio) {
+    @Then("There is a log row for radio (.*)")
+    public void checkLogRadios(String radioName) {
         for (SelenideElement element : radios) {
-            if (element.parent().getText().equals(radio.name))
-                assertTrue(logContainsRadio(radio.name, element));
+            if (element.parent().getText().equals(radioName))
+                assertTrue(logContainsRadio(radioName, element));
         }
     }
 
     @Step
-    public void checkLogDropdown(Dropdown dropdownColor) {
+    @Then("There is a log row for dropdown (.*)")
+    public void checkLogDropdown(String dropdownColor) {
         assertTrue(logContainsDropdown(dropdownColor));
     }
 
-    @Step
-    private void checkLogCheckbox(Checkboxes checkbox) {
+    private void checkLogCheckbox(String checkboxName) {
         for (SelenideElement element : checkboxes) {
-            if (element.parent().getText().equals(checkbox.name))
-                assertTrue(logContainsCheckbox(checkbox, element));
+            if (element.parent().getText().equals(checkboxName))
+                assertTrue(logContainsCheckbox(checkboxName, element));
         }
     }
 }
