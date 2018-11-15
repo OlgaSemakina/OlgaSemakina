@@ -1,8 +1,7 @@
-package hw6.utilities;
+package hw6.entities;
 
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
-import hw6.entities.UserFromTable;
 import io.cucumber.datatable.DataTableType;
 
 import java.util.Locale;
